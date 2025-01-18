@@ -331,23 +331,34 @@ p {
 }
 
 .indicator-box {
-    display: block;
+    display: inline-block;
     padding: 0px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px;
+    position: relative;
     overflow: hidden;
+    border: 1px solid #2f2f2f;
+    background-color: #222;
+    height: 18px;
+    text-align: left;
+    border-radius: 16px;
+    transition: 0.2s;
 }
 
 .reel-indicator {
-    color: #aaa;
+    position: absolute;
+    left: 0px;
+    background-color: #777;
+    width: 16px;
+    height: 16px;
     padding: 0px;
     margin: 0px 3px;
     display: inline-block;
     opacity: 0.8;
     user-select: none;
-    line-height: 15px;
     overflow: hidden;
-    font-size: 32px;
-    font-weight: normal;
+    border-radius: 50%;
+    transition: 0.2s;
+    border: 1px solid #222;
 }
 
 .reel-indicator:hover {
@@ -356,23 +367,23 @@ p {
 
 .reel-container {
     position: relative;
-    display: inline-block;
+    display: flex;
     text-align: center;
     width: 100%;
     padding: 0px 0px;
-    margin: 40px 0px 10px 0px;
+    margin: 40px 0px 20px 0px;
     border-spacing: 0;
     transition: 0.2s;
     overflow: visible;
-    border-top: 1px solid #3a3a3a;
-    border-bottom: 1px solid #3a3a3a;
+
     background-color: #222;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 6px;
 }
 
 .reel {
+    display: inline-block;
     position: absolute;
-    top: 10px;
+    top: 1px;
     left: 0px;
     margin: 0px;
     padding: 0px;
@@ -385,11 +396,9 @@ p {
     display: inline-block;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     transition: 0.2s;
-    margin: 0px 30px;
+    margin: 0px 0px;
     padding: 0px;
     user-select: none;
-    border: 1px solid #333;
-    border-radius: 2px;
 }
 
 .reel img:hover {
@@ -399,9 +408,9 @@ p {
 .reel p {
     display: inline-block;
     position: absolute;
-    top: -28px;
+    top: -18px;
     padding: 0px;
-    margin: 0px 0px 0px 30px;
+    margin: 0px 0px 0px 4px;
     font-family: JosefinSans-Medium;
     color: #aaa;
     text-align: left;
@@ -421,16 +430,13 @@ p {
 }
 
 .reel-item {
-    display: inline-block;
+    display:inline-flex;
     position: relative;
     margin: 0px;
     padding: 0px;
 }
 
 @media only screen and (min-width: 900px) {
-    .reel img {
-        height: 200px;
-    }
     .reel-container {
         height: 222px;
     }
@@ -447,9 +453,6 @@ p {
 }
 
 @media only screen and (max-width: 900px) {
-    .reel img {
-        height: 160px;
-    }
     .reel-container {
         height: 183px;
     }
@@ -466,9 +469,6 @@ p {
 }
 
 @media only screen and (max-width: 440px) {
-    .reel img {
-        height: 164px;
-    }
     .reel-container {
         height: 187px;
     }
@@ -482,10 +482,6 @@ p {
 }
 
 @media only screen and (max-width: 380px) {
- 
-    .reel img {
-        height: 150px;
-    }
     .reel-container {
         height: 172px;
     }
@@ -499,9 +495,6 @@ p {
 }
 
 @media only screen and (max-width: 350px) {
-    .reel img {
-        height: 130px;
-    }
     .reel-container {
         height: 152px;
     }

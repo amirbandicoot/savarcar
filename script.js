@@ -10,8 +10,7 @@ function setupReel(e) {
     const type = e.type; const width = window.innerWidth;
     let max;
     if(width <= 720) max = 1; else if(width <= 1700) max = 2; else max = 4;
-    //if(max == 3) max = 2; else if(max > 4) max = 4;
-    const containers = document.getElementsByClassName('reel-container');
+    const boxes = document.getElementsByClassName('reel-container');
     // Creating the reel
     const create = () => {
         const reel = document.createElement('div');
@@ -30,42 +29,40 @@ function setupReel(e) {
                 const image = document.createElement('img');
                 image.className = 'reel-image';
                 image.style.borderColor = (theme == 1) ? '#444' : '#bbb';
+                if(max == 1) {
+                    image.style.width = width + 'px';
+                    image.style.margin = '0px';
+                } else {
+                    image.style.width = (width / max) - 80 + 'px';
+                    image.style.margin = '0px 30px';
+                }
+                image.style.width = 
                 image.src = 'img/cars/' + carImages[index];
                 const label = document.createElement('p');
                 label.innerHTML = '#' + (index + 1) + ' ' + carNames[index++];
                 label.style.color = (theme == 1) ? '#ccc' : '#555';
                 item.appendChild(label);
                 item.appendChild(image);
-                if(i != max - 1) {
+                if(i != max && i != 0) {
                     const divider = document.createElement('div');
                     divider.className = 'reel-divider';
                     if(theme == 1) divider.style.backgroundColor = '#3a3a3a'; else divider.style.backgroundColor = '#e6e6e6';
                     item.appendChild(divider);
                 }
                 reel.appendChild(item);
+                boxes[0].style.height = (parseInt(image.style.width) / 1.777777777777778) + 2 + 'px';
             }
-            containers[0].appendChild(reel);
+            
+            boxes[0].appendChild(reel);
             // Creating pages
             (() => {
                 const count = carImages.length / max;
                 const box = document.getElementById('cars-indicator-box');
-                box.textContent = '';
-                for(let i = 0; i < count; i++) {
-                    const item = document.createElement('h6');
-                    item.innerHTML = '•';
-                    item.id = i;
-                    item.className = 'reel-indicator';
-                    item.style.transition = '0.2s';
-                    item.onclick = (event) => {
-                        setupReel(event);
-                    }
-                    if((carIndex / max) == i)
-                        setTimeout(() => {
-                            item.style.pointerEvents = 'none';
-                            item.style.color = 'lightcoral';
-                    }, 10);
-                    box.appendChild(item);
-                }
+                const indicator = document.getElementById('cars-reel-indicator');
+                box.style.width = count * 24 + 'px';
+                setTimeout(() => {
+                    indicator.style.left = (carIndex / max) * 24 + 'px';
+                }, 1);
             })();
     }
     // Arranging the reel according to screen size
@@ -203,7 +200,7 @@ function toggleTheme() {
     // Setting theme
     theme = (theme == 1) ? 0 : 1;
     // Defining required shades
-    const shades = [['#fff', '#fcfcfc', '#e6e6e6', '#bbb', '#555'], ['#222', '#2a2a2a', '#3a3a3a', '#444', '#ccc']];
+    const shades = [['#fff', '#fcfcfc', '#e6e6e6', '#bbb', '#777'], ['#222', '#2a2a2a', '#3a3a3a', '#444', '#ccc']];
     // Top Bar elements
     const logos = ['lightLogo.png', 'darkLogo.png'];
     const menus = ['lightMenu.png', 'darkMenu.png'];
@@ -220,6 +217,8 @@ function toggleTheme() {
     const reelContainers = document.getElementsByClassName('reel-container');
     const reelDividers = document.getElementsByClassName('reel-divider');
     const reelImages = document.getElementsByClassName('reel-image');
+    const reelIndicatorBoxes = document.getElementsByClassName('indicator-box');
+    const reelIndicators = document.getElementsByClassName('reel-indicator');
     const texts = document.getElementsByTagName('p');
     // Applying theme on main elements
     document.body.style.backgroundColor = shades[theme][1];
@@ -242,6 +241,14 @@ function toggleTheme() {
     reelContainers[0].style.backgroundColor = shades[theme][0];
     reelContainers[0].style.borderColor = shades[theme][2];
     
+    //reelIndicatorBoxes[0].style.transition = '0.2s';
+    reelIndicatorBoxes[0].style.backgroundColor = shades[theme][0];
+    reelIndicatorBoxes[0].style.borderColor = shades[theme][2];
+    for(let i = 0; i < reelIndicators.length; i++) {
+        //reelIndicators[i].style.transition = '0.2s';
+        reelIndicators[i].style.backgroundColor = shades[theme][4];
+        reelIndicators[i].style.borderColor = shades[theme][2];
+    }
     for(let i = 0; i < reelDividers.length; i++) {
         reelDividers[i].style.backgroundColor = shades[theme][2];
     }
