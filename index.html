@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="script.js"></script>
+        <title>Madadcar</title>
+    </head>
+
+    <body onload="setupReel(event)" onresize="setupReel(event)">
+        <div id="top-bar">
+            <img id="menu-button" class="main-buttons" src="img/ui/darkMenu.png" onclick="toggleMenu()" />
+            <img id="main-logo" src="img/ui/darkLogo.png" onclick="switchPage(event)"/>
+            <img class="main-buttons" src="img/ui/contrast (9).png" onclick="toggleTheme()" />
+        </div>
+        <div id="menu-bar">
+            <div class="menu-item" id="cars-menu-item">
+                <div class="menu-item-top" id="cars-menu-item-top" onclick="toggleItem(event)">
+                    <img id="cars-menu-arrow" class="menu-arrow" src="img/ui/arrow.png"/><p class="menu-text">ماشین‌ها</p>
+                </div>
+                <div class="menu-item-bot" id="cars-menu-item-bot">
+                    <p class="menu-sub-item">BMW</p><p class="menu-sub-item">Benz</p><p class="menu-sub-item">Lamborghini</p><p class="menu-sub-item">McLaren</p>
+                    <p class="menu-sub-item">Bugatti</p><p class="menu-sub-item">Peugeot</p><p class="menu-sub-item">Nissan</p><p class="menu-sub-item">Toyota</p>
+                    <p class="menu-sub-item">Hyundai</p><p class="menu-sub-item">Audi</p><p class="menu-sub-item">Chevrolette</p><p class="menu-sub-item">Aston Martin</p>
+                    <p class="menu-sub-item">Ferrari</p><p class="menu-sub-item">KIA</p><p class="menu-sub-item">Mitsubishi</p><p class="menu-sub-item">Honda</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-top" id="news-menu-item-top">
+                    <img class="menu-arrow" src="img/ui/arrow.png"/><p class="menu-text">خبرها</p>
+                </div>
+                <div class="menu-item-bot" id="cars-menu-item-bot">
+
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="menu-item-top" id="news-menu-item-top">
+                    <img class="menu-arrow" src="img/ui/arrow.png"/><p class="menu-text">آموزش‌ها</p>
+                </div>
+                <div class="menu-item-bot" id="cars-menu-item-bot">
+
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-top" id="news-menu-item-top">
+                    <img class="menu-arrow" src="img/ui/arrow.png"/><p class="menu-text">تعمیرگاه‌ها</p>
+                </div>
+                <div class="menu-item-bot" id="cars-menu-item-bot">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="main-page">
+            <div class="reel-box" id="cars-box">
+                <div class="reel-header">
+                    <p>پرسرعت‌ترین ماشین‌ها</p>
+                </div>
+                <img id="left" class="reel-arrow" src="img/ui/left-arrow.png" onclick="setupReel(event)" />
+                <img id="right" class="reel-arrow" src="img/ui/right-arrow.png" onclick="setupReel(event)" />
+                <div class="reel-container"></div>
+                <div class= "indicator-box" id="cars-indicator-box"></div>
+            </div>
+        </div>
+
+        <div class="page" id="cars-page">
+            Hey how are you?
+        </div>
+        <div id="footer">
+            <img src='img/ui/photo.png' /><img src='img/ui/envelope.png' /><img src='img/ui/messages.png' />
+        </div>
+    </body>
+</html>
