@@ -16,7 +16,7 @@ function setupReel(e) {
         const reel = document.createElement('div');
         reel.className = 'reel';
         reel.id = 'cars-reel';
-        reel.style.transition = '0.2s';
+        reel.style.transition = '0.3s';
         return reel;
     }
     // Populating the reel
@@ -187,11 +187,11 @@ function toggleItem(e) {
     const arrow = document.getElementById(parts[0] + '-menu-arrow');
     const bot = document.getElementById(parts[0] + '-menu-item-bot');
     if(e.target.className == 'menu-item-top') {
-        if(e.target.parentElement.offsetHeight == 60) {
+        if(e.target.parentElement.offsetHeight == 58) {
             e.target.parentElement.style.height = (e.target.offsetHeight + bot.offsetHeight) + 'px';
             arrow.style.transform = 'rotate(-90deg)';
         } else {
-            e.target.parentElement.style.height = '60px';
+            e.target.parentElement.style.height = '58px';
             arrow.style.transform = '';
         }
     }

@@ -24,12 +24,12 @@ body {
     margin: 0px;
     text-align: center;
     background-color: #2a2a2a;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 p {
     color: #ccc;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 /* ===== Top Bar ===== */
@@ -48,7 +48,7 @@ p {
     border-spacing: 0;
     z-index: 10;
     box-shadow: rgba(0, 0, 0, 0.10) 0px 1px 4px;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 #main-logo {
@@ -67,7 +67,6 @@ p {
 
 .main-buttons:nth-child(3) {
     float: right;
-    transition: 0.5s;
     height: 30px;
     padding: 13px 10px 9px 10px;
 }
@@ -90,7 +89,7 @@ p {
     height: 100px;
     background-color: #222;
     margin: 400px 0px 0px 0px;
-    transition: 0.2s;
+    transition: 0.3s;
     border-top: 1px solid #3a3a3a;
 }
 
@@ -114,7 +113,7 @@ p {
     height: 100%;
     background-color: #222;
     z-index: 6;
-    transition: 0.2s;
+    transition: 0.3s;
     border-right: 1px solid #3a3a3a;
     padding: 0px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -128,15 +127,15 @@ p {
     text-align: right;
     margin: 0px 0px;
     padding: 0px 0px;
-    transition: 0.2s;
-    height: 60px;
+    transition: 0.3s;
+    height: 58px;
     overflow: hidden
 }
 
 .menu-item-top {
     overflow: hidden;
     padding: 0px 14px;
-    
+    margin: 0px;
 }
 
 .menu-item-bot {
@@ -146,7 +145,7 @@ p {
     margin: 0px 10px;
     border-bottom: 1px dashed #3a3a3a;
     border-top: 1px dashed #3a3a3a;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .menu-item:first-of-type {
@@ -184,7 +183,7 @@ p {
     width: 14px;
     top: 22px;
     left: 20px;
-    transition: 0.2s;
+    transition: 0.3s;
     pointer-events: none;
 }
 
@@ -192,7 +191,7 @@ p {
     padding: 16px 0px;
     margin: 0px 0px 0px 0px;
     display: block;
-    transition: 0.2s;
+    transition: 0.3s;
     opacity: 0.8;
     user-select: none;
     pointer-events: none;
@@ -209,7 +208,7 @@ p {
     background-color: #2a2a2a;
     overflow: hidden;
     text-align: center;
-    transition: 0.2s;
+    transition: 0.3s;
     cursor: pointer;
     user-select: none;
 }
@@ -243,7 +242,7 @@ p {
     position: relative;
     float: right;
     width: 24px;
-    transition: 0.4s;
+    transition: 0.3s;
     opacity: 0.9;
     margin: 2px 0px 0px 10px;
     pointer-events: none;
@@ -287,11 +286,6 @@ p {
     font-weight: 600;
 }
 
-.reel-header img {
-    width: 34px;
-    transition: 1s;
-}
-
 .reel-header img:first-of-type {
     float: left;
 }
@@ -305,7 +299,7 @@ p {
     width: 18px;
     height: 18px;
     opacity: 0.8;
-    transition: 0.2s;
+    transition: 0.3s;
     z-index: 2;
     user-select: none;
     margin: 1px 0px 0px 0px;
@@ -332,7 +326,7 @@ p {
     height: 18px;
     text-align: left;
     border-radius: 16px;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .reel-indicator {
@@ -348,7 +342,7 @@ p {
     user-select: none;
     overflow: hidden;
     border-radius: 50%;
-    transition: 0.2s;
+    transition: 0.3s;
     border: 1px solid #222;
 }
 
@@ -364,9 +358,8 @@ p {
     padding: 0px 0px;
     margin: 40px 0px 20px 0px;
     border-spacing: 0;
-    transition: 0.2s;
-    overflow: hidden;
-
+    transition: 0.3s;
+    overflow: visible;
     background-color: #222;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 6px;
 }
@@ -386,7 +379,7 @@ p {
     position: relative;
     display: inline-block;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    transition: 0.2s;
+    transition: 0.3s;
     margin: 0px 0px;
     padding: 0px;
     user-select: none;
@@ -406,7 +399,7 @@ p {
     color: #aaa;
     text-align: left;
     text-indent: 0px;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .reel-divider {
@@ -417,7 +410,7 @@ p {
     display: inline-block;
     margin: 0px 0px;
     border-radius: 10px;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .reel-item {
@@ -428,51 +421,35 @@ p {
 }
 
 @media only screen and (min-width: 900px) {
-    .reel-container {
-        height: 222px;
-    }
-    .reel-divider {
-        top: 66px;
-    }
+
     .reel p {
         font-size: 14px;
     }
 }
 
 @media only screen and (max-width: 900px) {
-    .reel-container {
-        height: 183px;
-    }
-    .reel-divider {
-        top: 46px;
-    }
+
     .reel p {
         font-size: 12px;
     }
 }
 
 @media only screen and (max-width: 440px) {
-    .reel-container {
-        height: 187px;
-    }
+ 
     .reel p {
         font-size: 12px;
     }
 }
 
 @media only screen and (max-width: 380px) {
-    .reel-container {
-        height: 172px;
-    }
+   
     .reel p {
         font-size: 12px;
     }
 }
 
 @media only screen and (max-width: 350px) {
-    .reel-container {
-        height: 152px;
-    }
+ 
     .reel p {
         font-size: 12px;
     }
