@@ -131,7 +131,6 @@ function setupReel(e) {
                     oReel.style.left = width + 'px'; 
                 }
                 carIndex = parseInt((e.pageX - e.target.offsetLeft) / 20);
-                alert(carIndex);
                 oReel.style.opacity = '0.1';
                 break; }
         }
