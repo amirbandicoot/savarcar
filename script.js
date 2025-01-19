@@ -4,11 +4,11 @@ let carIndex = 0;
 let isScrolling = false;
 let activePage = 'main';
 let theme = 1;
-
+let startX; let endX;
 function setupReel(e) {
     // Defining required vairables
     const type = e.type; const width = window.innerWidth;
-    let max; let startX; let endX;
+    let max; 
     if(width <= 720) max = 1; else if(width <= 1700) max = 2; else max = 4;
     const boxes = document.getElementsByClassName('reel-container');
     // Creating the reel
@@ -37,12 +37,12 @@ function setupReel(e) {
                     image.style.margin = '0px 30px';
                 }
                 image.src = 'img/cars/' + carImages[index];
-                image.addEventListener('touchstart', e => {
-                    startX = e.changedTouches[0].screenX;
+                image.addEventListener('touchstart', evt => {
+                    startX = evt.changedTouches[0].screenX;
                 })
-                image.addEventListener('touchend', e => {
-                    endX = changedTouches[0].screenX;
-                    checkDirection();
+                image.addEventListener('touchend', evt => {
+                    endX = evt.changedTouches[0].screenX;
+                    setupReel(evt);
                 })
                 const label = document.createElement('p');
                 label.innerHTML = '#' + (index + 1) + ' ' + carNames[index++];
@@ -71,9 +71,6 @@ function setupReel(e) {
                 }, 1);
             })();
     }
-    const checkDirection = (() => {
-            alert(startX + endX);
-    })
     // Arranging the reel according to screen size
     const arrange = (reel) => {
         const re = carIndex % max;
@@ -85,12 +82,11 @@ function setupReel(e) {
         }
     }
     // Scrolling the reel
-    const scroll = () => {
+    const scroll = (dir) => {
         isScrolling = true;
-        const source = e.target.id; 
         const oReel = document.getElementById('cars-reel');
         const nReel = create();
-        switch(source) {
+        switch(dir) {
             case 'left': {
                 if(carIndex > 0) {
                     nReel.style.left = - width + 'px';
@@ -152,8 +148,6 @@ function setupReel(e) {
             page.style.display = 'inline-block';
             setTimeout(() => { page.style.opacity = '1'; }, 1);
             populate(create());
-            
-            
             break; }
         case "resize": {
             const reel = document.getElementById('cars-reel');
@@ -161,9 +155,19 @@ function setupReel(e) {
             break; }
         case "click": {
             if(!isScrolling) {
-                scroll();
+                const source = e.target.id; 
+                if(source == 'left') {
+                    scroll('left'); }
+                else if(source == 'right') { scroll('right'); };
             }
             break; }
+        case 'touchend':
+            if(startX < endX) {
+                scroll('left');
+            } else {
+                scroll('right');
+            }
+            break;
     }
 }
 
