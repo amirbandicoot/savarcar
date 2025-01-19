@@ -300,13 +300,13 @@ p {
 
 .reel-arrow {
     position: relative;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     opacity: 0.8;
     transition: 0.3s;
     z-index: 2;
     user-select: none;
-    margin: 1px 0px 0px 0px;
+    margin: 2px 0px 0px 0px;
 }
 
 .reel-arrow:hover {
@@ -348,6 +348,7 @@ p {
     border-radius: 50%;
     transition: 0.3s;
     border: 1px solid #222;
+    pointer-events: none;
 }
 
 .reel-indicator:hover {

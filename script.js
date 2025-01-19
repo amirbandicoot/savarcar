@@ -78,10 +78,10 @@ function setupReel(e) {
         const re = carIndex % max;
         if(re != 0) carIndex -= re;
         // Detecting screen size changes
-        //if(max == 1 || reel.childNodes.length > max || reel.childNodes.length < max) {
-            //if(carIndex < max) carIndex = 0; else if(carIndex >= carImages.length - max) carIndex = carImages.length - max;
+        if(max == 1 || reel.childNodes.length > max || reel.childNodes.length < max) {
+            if(carIndex < max) carIndex = 0; else if(carIndex >= carImages.length - max) carIndex = carImages.length - max;
             populate(reel);
-        //}
+        }
     }
     // Scrolling the reel
     const scroll = (dir) => {
@@ -120,18 +120,18 @@ function setupReel(e) {
                 }
                 break; }
             default: {
-                //alert(e.target.offsetLeft);
-                //alert(e.target.children[0].offsetLeft);
-                //alert(e.pageX);
+                
+                //alert(e.pageX - e.target.offsetLeft - e.target.children[0].offsetLeft);
                 nReel.style.opacity = '0.1';
-                if(carIndex < (source * max)) {
+                if(e.pageX - e.target.offsetLeft < e.target.children[0].offsetLeft) {
                     nReel.style.left = width + 'px';
                     oReel.style.left = - width + 'px'; 
                 } else {
                     nReel.style.left = - width + 'px';
                     oReel.style.left = width + 'px'; 
                 }
-                carIndex = source * max;
+                carIndex = parseInt((e.pageX - e.target.offsetLeft) / 20);
+                alert(carIndex);
                 oReel.style.opacity = '0.1';
                 break; }
         }
@@ -160,7 +160,7 @@ function setupReel(e) {
                 const source = e.target.id; 
                 if(source == 'left') {
                     scroll('left'); }
-                else if(source == 'right') { scroll('right'); };
+                else if(source == 'right') { scroll('right'); } else { scroll('jump'); }
             }
             break; }
         case 'touchend': {
