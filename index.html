@@ -58,11 +58,15 @@
                 <div class="reel-header">
                     <p>پرسرعت‌ترین ماشین‌ها</p>
                 </div>
-                <img id="left" class="reel-arrow" src="img/ui/left-arrow.png" onclick="setupReel(event)" />
-                <img id="right" class="reel-arrow" src="img/ui/right-arrow.png" onclick="setupReel(event)" />
+                
+                
                 <div class="reel-container"></div>
-                <div class= "indicator-box" id="cars-indicator-box" onclick="setupReel(event)">
-                    <span id="cars-reel-indicator" class="reel-indicator"></span>
+                <div class="indicator-box">
+                    <img id="left" class="reel-arrow" src="img/ui/left.png" onclick="setupReel(event)" />
+                    <div class= "indicator-container" id="cars-indicator-container" onclick="setupReel(event)">
+                        <span id="cars-reel-indicator" class="reel-indicator"></span>
+                    </div>
+                    <img id="right" class="reel-arrow" src="img/ui/right.png" onclick="setupReel(event)" />
                 </div>
             </div>
         </div>

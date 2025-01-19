@@ -16,7 +16,7 @@ function setupReel(e) {
         const reel = document.createElement('div');
         reel.className = 'reel';
         reel.id = 'cars-reel';
-        reel.style.transition = (max == 1) ? '0.2s' : '0.5s';
+        reel.style.transition = '0.2s';
         return reel;
     }
     // Populating the reel
@@ -63,11 +63,11 @@ function setupReel(e) {
             // Creating pages
             (() => {
                 const count = carImages.length / max;
-                const box = document.getElementById('cars-indicator-box');
+                const box = document.getElementById('cars-indicator-container');
                 const indicator = document.getElementById('cars-reel-indicator');
-                box.style.width = count * 24 + 'px';
+                box.style.width = count * 20 + 'px';
                 setTimeout(() => {
-                    indicator.style.left = (carIndex / max) * 24 + 'px';
+                    indicator.style.left = (carIndex / max) * 20 + 'px';
                 }, 1);
             })();
     }
@@ -76,10 +76,10 @@ function setupReel(e) {
         const re = carIndex % max;
         if(re != 0) carIndex -= re;
         // Detecting screen size changes
-        if(reel.childNodes.length > max || reel.childNodes.length < max) {
-            if(carIndex < max) carIndex = 0; else if(carIndex >= carImages.length - max) carIndex = carImages.length - max;
+        //if(max == 1 || reel.childNodes.length > max || reel.childNodes.length < max) {
+            //if(carIndex < max) carIndex = 0; else if(carIndex >= carImages.length - max) carIndex = carImages.length - max;
             populate(reel);
-        }
+        //}
     }
     // Scrolling the reel
     const scroll = (dir) => {
@@ -118,9 +118,9 @@ function setupReel(e) {
                 }
                 break; }
             default: {
-                alert(e.target.offsetLeft);
-                alert(e.target.children[0].offsetLeft);
-                alert(e.pageX);
+                //alert(e.target.offsetLeft);
+                //alert(e.target.children[0].offsetLeft);
+                //alert(e.pageX);
                 nReel.style.opacity = '0.1';
                 if(carIndex < (source * max)) {
                     nReel.style.left = width + 'px';
@@ -233,7 +233,7 @@ function toggleTheme() {
     const reelContainers = document.getElementsByClassName('reel-container');
     const reelDividers = document.getElementsByClassName('reel-divider');
     const reelImages = document.getElementsByClassName('reel-image');
-    const reelIndicatorBoxes = document.getElementsByClassName('indicator-box');
+    const reelIndicatorBoxes = document.getElementsByClassName('indicator-container');
     const reelIndicators = document.getElementsByClassName('reel-indicator');
     const texts = document.getElementsByTagName('p');
     // Applying theme on main elements
