@@ -1,4 +1,4 @@
-let carImages = ["aventador.jpg", "urus.jpg", "urus2.jpg", "aventador2.jpg", "artura.jpg", "artura2.jpg", "artura3.jpg", "720s.jpg", "aventador.jpg", "urus.jpg", "urus2.jpg", "aventador2.jpg"];
+let carImages = ["aventador-thumb.jpg", "urus-thumb.jpg", "urus2-thumb.jpg", "aventador2-thumb.jpg", "artura-thumb.jpg", "artura2-thumb.jpg", "artura3-thumb.jpg", "720s-thumb.jpg", "aventador-thumb.jpg", "urus-thumb.jpg", "urus2-thumb.jpg", "aventador2-thumb.jpg"];
 let carNames = ["Lamborghini Aventador", "Lamborghini Urus", "Lamborghini Urus SE", "Lamborghini Aventador SE", "McLaren Artura", "McLaren Artura SE", "McLaren Artura Type 3", "McLaren 720S", "Lamborghini Aventador", "Lamborghini Urus", "Lamborghini Urus SE", "Lamborghini Aventador SE"];
 let carIndex = 0;
 let isScrolling = false;

@@ -300,8 +300,8 @@ p {
 
 .reel-arrow {
     position: relative;
-    width: 16px;
-    height: 16px;
+    width: 17px;
+    height: 17px;
     opacity: 0.8;
     transition: 0.3s;
     z-index: 2;
@@ -391,7 +391,7 @@ p {
 }
 
 .reel img:hover {
-    opacity: 0.05;
+    opacity: 0.8;
 }
 
 .reel p {
@@ -409,6 +409,7 @@ p {
 
 .reel-divider {
     position: absolute;
+    top: 68px;
     width: 2px;
     height: 80px;
     background-color: #3a3a3a;
