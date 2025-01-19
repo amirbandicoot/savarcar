@@ -161,13 +161,15 @@ function setupReel(e) {
                 else if(source == 'right') { scroll('right'); };
             }
             break; }
-        case 'touchend':
-            if(startX < endX) {
-                scroll('left');
-            } else if(startX > endX) {
-                scroll('right');
+        case 'touchend': {
+            if(!isScrolling) {
+                if(startX < endX) {
+                    scroll('left');
+                } else if(startX > endX) {
+                    scroll('right');
+                }
             }
-            break;
+            break; }
     }
 }
 
