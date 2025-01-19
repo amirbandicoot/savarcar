@@ -191,11 +191,11 @@ function toggleItem(e) {
     const arrow = document.getElementById(parts[0] + '-menu-arrow');
     const bot = document.getElementById(parts[0] + '-menu-item-bot');
     if(e.target.className == 'menu-item-top') {
-        if(e.target.parentElement.offsetHeight == 58) {
+        if(e.target.parentElement.offsetHeight == 55) {
             e.target.parentElement.style.height = (e.target.offsetHeight + bot.offsetHeight) + 'px';
             arrow.style.transform = 'rotate(-90deg)';
         } else {
-            e.target.parentElement.style.height = '58px';
+            e.target.parentElement.style.height = '55px';
             arrow.style.transform = '';
         }
     }
