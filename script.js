@@ -36,7 +36,9 @@ function setupReel(e) {
                     image.style.width = (width / max) - 80 + 'px';
                     image.style.margin = '0px 30px';
                 }
+                image.loading = 'lazy';
                 image.src = 'img/cars/' + carImages[index];
+                
                 image.addEventListener('touchstart', evt => {
                     startX = evt.changedTouches[0].screenX;
                 })
