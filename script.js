@@ -8,7 +8,7 @@ let theme = 1;
 function setupReel(e) {
     // Defining required vairables
     const type = e.type; const width = window.innerWidth;
-    let max;
+    let max; let startX; let endX;
     if(width <= 720) max = 1; else if(width <= 1700) max = 2; else max = 4;
     const boxes = document.getElementsByClassName('reel-container');
     // Creating the reel
@@ -36,8 +36,14 @@ function setupReel(e) {
                     image.style.width = (width / max) - 80 + 'px';
                     image.style.margin = '0px 30px';
                 }
-                image.style.width = 
                 image.src = 'img/cars/' + carImages[index];
+                image.addEventListener('touchstart', e => {
+                    startX = e.changedTouches[0].screenX;
+                })
+                image.addEventListener('touchend', e => {
+                    endX = changedTouches[0].screenX;
+                    checkDirection();
+                })
                 const label = document.createElement('p');
                 label.innerHTML = '#' + (index + 1) + ' ' + carNames[index++];
                 label.style.color = (theme == 1) ? '#ccc' : '#555';
@@ -65,6 +71,9 @@ function setupReel(e) {
                 }, 1);
             })();
     }
+    const checkDirection = (() => {
+            alert(startX + endX);
+    })
     // Arranging the reel according to screen size
     const arrange = (reel) => {
         const re = carIndex % max;
@@ -113,6 +122,9 @@ function setupReel(e) {
                 }
                 break; }
             default: {
+                alert(e.target.offsetLeft);
+                alert(e.target.children[0].offsetLeft);
+                alert(e.pageX);
                 nReel.style.opacity = '0.1';
                 if(carIndex < (source * max)) {
                     nReel.style.left = width + 'px';
