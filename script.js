@@ -16,7 +16,7 @@ function setupReel(e) {
         const reel = document.createElement('div');
         reel.className = 'reel';
         reel.id = 'cars-reel';
-        reel.style.transition = '0.6s';
+        reel.style.transition = (max == 1) ? '0.2s' : '0.5s';
         return reel;
     }
     // Populating the reel
@@ -164,7 +164,7 @@ function setupReel(e) {
         case 'touchend':
             if(startX < endX) {
                 scroll('left');
-            } else {
+            } else if(startX > endX) {
                 scroll('right');
             }
             break;
