@@ -300,8 +300,8 @@ p {
 
 .reel-arrow {
     position: relative;
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
     opacity: 0.8;
     transition: 0.3s;
     z-index: 2;
@@ -327,7 +327,7 @@ p {
     overflow: hidden;
     border: 1px solid #2f2f2f;
     background-color: #222;
-    height: 18px;
+    height: 20px;
     text-align: left;
     border-radius: 16px;
     transition: 0.3s;
@@ -336,9 +336,10 @@ p {
 .reel-indicator {
     position: absolute;
     left: 0px;
+    top: 1px;
     background-color: #777;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     padding: 0px;
     margin: 0px 1px;
     display: inline-block;
@@ -347,8 +348,6 @@ p {
     overflow: hidden;
     border-radius: 50%;
     transition: 0.3s;
-    border: 1px solid #222;
-    pointer-events: none;
 }
 
 .reel-indicator:hover {

@@ -32,9 +32,11 @@ function setupReel(e) {
                 if(max == 1) {
                     image.style.width = width + 'px';
                     image.style.margin = '0px';
+                    image.style.border = 'none';
                 } else {
                     image.style.width = (width / max) - 80 + 'px';
                     image.style.margin = '0px 30px';
+                    image.style.border = '1px solid #333';
                 }
                 image.loading = 'lazy';
                 image.src = 'img/cars/' + carImages[index];
@@ -47,6 +49,7 @@ function setupReel(e) {
                     setupReel(evt);
                 })
                 const label = document.createElement('p');
+                label.style.left = (max == 1) ? '0px' : '26px';
                 label.innerHTML = '#' + (index + 1) + ' ' + carNames[index++];
                 label.style.color = (theme == 1) ? '#ccc' : '#555';
                 item.appendChild(label);
@@ -58,7 +61,7 @@ function setupReel(e) {
                     item.appendChild(divider);
                 }
                 reel.appendChild(item);
-                boxes[0].style.height = (parseInt(image.style.width) / 1.777777777777778) + 2 + 'px';
+                boxes[0].style.height = (parseInt(image.style.width) / 1.777777777777778) + 4 + 'px';
             }
             
             boxes[0].appendChild(reel);
@@ -120,17 +123,16 @@ function setupReel(e) {
                 }
                 break; }
             default: {
-                
-                //alert(e.pageX - e.target.offsetLeft - e.target.children[0].offsetLeft);
                 nReel.style.opacity = '0.1';
                 if(e.pageX - e.target.offsetLeft < e.target.children[0].offsetLeft) {
-                    nReel.style.left = width + 'px';
-                    oReel.style.left = - width + 'px'; 
-                } else {
                     nReel.style.left = - width + 'px';
                     oReel.style.left = width + 'px'; 
+                } else {
+                    nReel.style.left = width + 'px';
+                    oReel.style.left = - width + 'px'; 
                 }
-                carIndex = parseInt((e.pageX - e.target.offsetLeft) / 20);
+                const position = parseInt(parseInt((e.pageX - e.target.offsetLeft) / 20) * max);
+                carIndex = (position <= carImages.length - max) ? position : carImages.length - max;
                 oReel.style.opacity = '0.1';
                 break; }
         }
@@ -159,7 +161,7 @@ function setupReel(e) {
                 const source = e.target.id; 
                 if(source == 'left') {
                     scroll('left'); }
-                else if(source == 'right') { scroll('right'); } else { scroll('jump'); }
+                else if(source == 'right') { scroll('right'); } else if(source != 'cars-reel-indicator') { scroll('jump'); }
             }
             break; }
         case 'touchend': {
