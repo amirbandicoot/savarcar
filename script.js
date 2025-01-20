@@ -28,16 +28,21 @@ function setupReel(e) {
                 item.className = 'reel-item';
                 const image = document.createElement('img');
                 image.className = 'reel-image';
-                image.style.borderColor = (theme == 1) ? '#444' : '#bbb';
+                image.style.borderColor = (theme == 1) ? '#333' : '#ccc';
                 if(max == 1) {
                     image.style.width = width + 'px';
                     image.style.margin = '0px';
-                    image.style.border = 'none';
+                    item.style.margin = '0px';
+                    item.style.borderRadius = '0px';
+                    item.style.borderBottom = '1px solid #333';
+                    item.style.borderTop = '1px solid #333';
                 } else {
                     image.style.width = (width / max) - 80 + 'px';
-                    image.style.margin = '0px 30px';
-                    image.style.border = '1px solid #333';
+                    image.style.margin = '0px 0px';
+                    item.style.border = '1px solid #222';
                 }
+                item.style.backgroundColor = (theme == 1) ? '#1a1a1a' : '#fcfcfc';
+                item.style.borderColor = (theme == 1) ? '#222' : '#eee';
                 image.loading = 'lazy';
                 image.src = 'img/cars/' + carImages[index];
                 
@@ -48,20 +53,23 @@ function setupReel(e) {
                     endX = evt.changedTouches[0].screenX;
                     setupReel(evt);
                 })
-                const label = document.createElement('p');
-                label.style.left = (max == 1) ? '0px' : '26px';
-                label.innerHTML = '#' + (index + 1) + ' ' + carNames[index++];
-                label.style.color = (theme == 1) ? '#ccc' : '#555';
-                item.appendChild(label);
+                const name = document.createElement('p');
+                const speed = document.createElement('p');
+                name.innerHTML = '#' + (index + 1) + ' ' + carNames[index++];
+                name.style.color = (theme == 1) ? '#ccc' : '#555';
+                speed.innerHTML = 'Top Speed: 260 KM/H';
+                item.appendChild(name);
                 item.appendChild(image);
+                item.appendChild(speed);
+                
                 if(i != max && i != 0) {
                     const divider = document.createElement('div');
                     divider.className = 'reel-divider';
                     if(theme == 1) divider.style.backgroundColor = '#3a3a3a'; else divider.style.backgroundColor = '#e6e6e6';
-                    item.appendChild(divider);
+                    //item.appendChild(divider);
                 }
                 reel.appendChild(item);
-                boxes[0].style.height = (parseInt(image.style.width) / 1.777777777777778) + 4 + 'px';
+                boxes[0].style.height = (parseInt(image.style.width) / 1.777777777777778) + 80 + 'px';
             }
             
             boxes[0].appendChild(reel);
@@ -221,7 +229,7 @@ function toggleTheme() {
     // Setting theme
     theme = (theme == 1) ? 0 : 1;
     // Defining required shades
-    const shades = [['#fff', '#fcfcfc', '#e6e6e6', '#bbb', '#777'], ['#222', '#2a2a2a', '#3a3a3a', '#444', '#ccc']];
+    const shades = [['#fff', '#fafafa', '#eee', '#bbb', '#777'], ['#1a1a1a', '#222', '#2a2a2a', '#444', '#ccc']];
     // Top Bar elements
     const logos = ['lightLogo.png', 'darkLogo.png'];
     const menus = ['lightMenu.png', 'darkMenu.png'];
@@ -235,8 +243,7 @@ function toggleTheme() {
     const menuBotItems = document.getElementsByClassName('menu-item-bot');
     const menuSubItems = document.getElementsByClassName('menu-sub-item');
     // Reel elements
-    const reelContainers = document.getElementsByClassName('reel-container');
-    const reelDividers = document.getElementsByClassName('reel-divider');
+    const reelItems = document.getElementsByClassName('reel-item');
     const reelImages = document.getElementsByClassName('reel-image');
     const reelIndicatorBoxes = document.getElementsByClassName('indicator-container');
     const reelIndicators = document.getElementsByClassName('reel-indicator');
@@ -259,8 +266,10 @@ function toggleTheme() {
         menuSubItems[i].style.borderColor = shades[theme][2];
     }
     // Applying theme on reel elements
-    reelContainers[0].style.backgroundColor = shades[theme][0];
-    reelContainers[0].style.borderColor = shades[theme][2];
+    for(let i = 0; i < reelItems.length; i++) {
+        reelItems[i].style.backgroundColor = shades[theme][0];
+        reelItems[i].style.borderColor = shades[theme][2];
+    }
     
     //reelIndicatorBoxes[0].style.transition = '0.2s';
     reelIndicatorBoxes[0].style.backgroundColor = shades[theme][0];
@@ -270,11 +279,8 @@ function toggleTheme() {
         reelIndicators[i].style.backgroundColor = shades[theme][4];
         reelIndicators[i].style.borderColor = shades[theme][2];
     }
-    for(let i = 0; i < reelDividers.length; i++) {
-        reelDividers[i].style.backgroundColor = shades[theme][2];
-    }
     for(let i = 0; i < reelImages.length; i++) {
-        reelImages[i].style.borderColor = shades[theme][3];
+        reelImages[i].style.borderColor = shades[theme][2];
     }
     for(let i = 0; i < texts.length; i++) {
         texts[i].style.color = shades[theme][4];
