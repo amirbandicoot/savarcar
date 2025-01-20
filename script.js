@@ -31,18 +31,16 @@ function setupReel(e) {
                 image.style.borderColor = (theme == 1) ? '#333' : '#ccc';
                 if(max == 1) {
                     image.style.width = width + 'px';
-                    image.style.margin = '0px';
                     item.style.margin = '0px';
                     item.style.borderRadius = '0px';
-                    item.style.borderBottom = '1px solid #333';
-                    item.style.borderTop = '1px solid #333';
+                    item.style.borderBottom = '1px solid #2a2a2a';
+                    item.style.borderTop = '1px solid #2a2a2a';
                 } else {
                     image.style.width = (width / max) - 80 + 'px';
-                    image.style.margin = '0px 0px';
                     item.style.border = '1px solid #222';
                 }
                 item.style.backgroundColor = (theme == 1) ? '#1a1a1a' : '#fcfcfc';
-                item.style.borderColor = (theme == 1) ? '#222' : '#eee';
+                item.style.borderColor = (theme == 1) ? '#2a2a2a' : '#eee';
                 image.loading = 'lazy';
                 image.src = 'img/cars/' + carImages[index];
                 
@@ -56,7 +54,8 @@ function setupReel(e) {
                 const name = document.createElement('p');
                 const speed = document.createElement('p');
                 name.innerHTML = '#' + (index + 1) + ' ' + carNames[index++];
-                name.style.color = (theme == 1) ? '#ccc' : '#555';
+                name.style.color = (theme == 1) ? '#bbb' : '#888';
+                speed.style.color = (theme == 1) ? '#bbb' : '#888';
                 speed.innerHTML = 'Top Speed: 260 KM/H';
                 item.appendChild(name);
                 item.appendChild(image);
@@ -229,7 +228,7 @@ function toggleTheme() {
     // Setting theme
     theme = (theme == 1) ? 0 : 1;
     // Defining required shades
-    const shades = [['#fff', '#fafafa', '#eee', '#bbb', '#777'], ['#1a1a1a', '#222', '#2a2a2a', '#444', '#ccc']];
+    const shades = [['#fff', '#f6f6f6', '#eee', '#ccc', '#888'], ['#1a1a1a', '#222', '#2a2a2a', '#444', '#bbb']];
     // Top Bar elements
     const logos = ['lightLogo.png', 'darkLogo.png'];
     const menus = ['lightMenu.png', 'darkMenu.png'];
@@ -280,7 +279,7 @@ function toggleTheme() {
         reelIndicators[i].style.borderColor = shades[theme][2];
     }
     for(let i = 0; i < reelImages.length; i++) {
-        reelImages[i].style.borderColor = shades[theme][2];
+        reelImages[i].style.borderColor = shades[theme][3];
     }
     for(let i = 0; i < texts.length; i++) {
         texts[i].style.color = shades[theme][4];

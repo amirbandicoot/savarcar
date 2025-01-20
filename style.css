@@ -38,7 +38,7 @@ body {
 }
 
 p {
-    color: #ccc;
+    color: #bbb;
     transition: 0.3s;
 }
 
@@ -294,18 +294,9 @@ p {
 .reel-header p {
     display: inline-block;
     margin: 4px 0px 0px 0px;
-    color: #ccc;
     border-radius: 14px;
     padding: 0px 14px;
     font-weight: 600;
-}
-
-.reel-header img:first-of-type {
-    float: left;
-}
-
-.reel-header img:nth-of-type(2) {
-    float: right;
 }
 
 .reel-arrow {
@@ -395,6 +386,8 @@ p {
     margin: 0px 0px;
     padding: 0px;
     user-select: none;
+    border-bottom: 1px solid #2a2a2a;
+    border-top: 1px solid #2a2a2a;
 }
 
 .reel img:hover {
@@ -407,7 +400,6 @@ p {
     padding: 10px;
     margin: 0px 0px 0px 0px;
     font-family: Merienda;
-    color: #aaa;
     text-align: left;
     text-indent: 0px;
     transition: 0.3s;
@@ -428,11 +420,10 @@ p {
 .reel-item {
     display:inline-grid;
     position: relative;
-    margin: 0px 20px;
+    margin: 0px 30px;
     padding: 0px;
     border-radius: 6px;
     overflow: visible;
-    background-color: #1a1a1a;
     transition: 0.3s;
     border-spacing: 0px;
 }
