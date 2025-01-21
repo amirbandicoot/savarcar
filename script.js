@@ -184,11 +184,14 @@ function setupReel(e) {
 }
 
 function toggleMenu() {
+    const page = document.getElementById('main-page');
     const menu = document.getElementById('menu-bar');
     if(menu.style.display != 'inline-block') {
+        page.style.filter = 'blur(3px)';
         menu.style.display = 'inline-block';
         setTimeout(() => { menu.style.left = '0px'; }, 1);
     } else {
+        page.style.filter = 'blur(0px)';
         menu.style.left = "-300px";
         setTimeout(() => { menu.style.display = 'none'; }, 200);
     }
@@ -241,6 +244,8 @@ function toggleTheme() {
     const menu = document.getElementById('menu-bar');
     const menuBotItems = document.getElementsByClassName('menu-item-bot');
     const menuSubItems = document.getElementsByClassName('menu-sub-item');
+    // Brands elements
+    const brandsBox = document.getElementById('brands-box');
     // Reel elements
     const reelItems = document.getElementsByClassName('reel-item');
     const reelImages = document.getElementsByClassName('reel-image');
@@ -263,6 +268,11 @@ function toggleTheme() {
     for(let i = 0; i < menuSubItems.length; i++) {
         menuSubItems[i].style.backgroundColor = shades[theme][1];
         menuSubItems[i].style.borderColor = shades[theme][2];
+    }
+    // Applying theme on brands elements
+    for(let i = 0; i < brandsBox.children.length; i ++) {
+        brandsBox.children[i].style.backgroundColor = shades[theme][0];
+        brandsBox.children[i].style.borderColor = shades[theme][2];
     }
     // Applying theme on reel elements
     for(let i = 0; i < reelItems.length; i++) {

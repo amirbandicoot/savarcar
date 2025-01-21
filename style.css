@@ -273,6 +273,45 @@ p {
     opacity: 0;
 }
 
+/* ===== Brands ===== */
+
+#brands-box {
+    display: inline-block;
+}
+
+#brands-box li {
+    display: inline-block;
+    list-style: none;
+    width: 90px;
+    border: 1px solid #2a2a2a;
+    text-align: center;
+    background-color: #111;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#brands-box li:hover .logo-image {
+    transform:rotateZ(-14deg);
+}
+
+#brands-box p {
+    display: block;
+    font-family: Merienda;
+    font-size: 12px;
+    margin: 0px;
+}
+
+#brands-box img {
+    display: inline-block;
+    width: 64px;
+    padding: 0px;
+    margin: 0px;
+    transition: 0.5s;
+    
+}
+
 /* ===== Reels ===== */
 
 .reel-box {
@@ -374,7 +413,7 @@ p {
     left: 0px;
     margin: 0px;
     padding: 0px;
-    overflow: visible;
+    overflow: hidden;
     width: 100%;
 }
 
