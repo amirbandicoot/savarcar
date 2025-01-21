@@ -37,9 +37,9 @@ function setupReel(e) {
                     item.style.borderTop = '1px solid #2a2a2a';
                 } else {
                     image.style.width = (width / max) - 80 + 'px';
-                    item.style.border = '1px solid #222';
+                    item.style.border = '1px solid #2a2a2a';
                 }
-                item.style.backgroundColor = (theme == 1) ? '#1a1a1a' : '#fcfcfc';
+                item.style.backgroundColor = (theme == 1) ? '#111' : '#fcfcfc';
                 item.style.borderColor = (theme == 1) ? '#2a2a2a' : '#eee';
                 image.loading = 'lazy';
                 image.src = 'img/cars/' + carImages[index];
@@ -228,7 +228,7 @@ function toggleTheme() {
     // Setting theme
     theme = (theme == 1) ? 0 : 1;
     // Defining required shades
-    const shades = [['#fff', '#f6f6f6', '#eee', '#ccc', '#888'], ['#1a1a1a', '#222', '#2a2a2a', '#444', '#bbb']];
+    const shades = [['#fff', '#f6f6f6', '#eee', '#ccc', '#888'], ['#111', '#1a1a1a', '#2a2a2a', '#444', '#bbb']];
     // Top Bar elements
     const logos = ['lightLogo.png', 'darkLogo.png'];
     const menus = ['lightMenu.png', 'darkMenu.png'];

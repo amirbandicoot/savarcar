@@ -33,7 +33,7 @@ body {
     padding: 60px 0px 0px 0px;
     margin: 0px;
     text-align: center;
-    background-color: #222;
+    background-color: #1a1a1a;
     transition: 0.3s;
 }
 
@@ -50,8 +50,8 @@ p {
     left: 0;
     width: 100%;
     height: 52px;
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #3a3a3a;
+    background-color: #111;
+    border-bottom: 1px solid #2a2a2a;
     text-align: center;
     padding: 0px;
     margin: 0px;
@@ -121,10 +121,10 @@ p {
     top: 0px;
     width: 240px;
     height: 100%;
-    background-color: #222;
+    background-color: #111;
     z-index: 6;
     transition: 0.3s;
-    border-right: 1px solid #3a3a3a;
+    border-right: 1px solid #2a2a2a;
     padding: 0px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin: 0px;
@@ -326,8 +326,8 @@ p {
     margin: 0px 14px;
     position: relative;
     overflow: hidden;
-    border: 1px solid #333;
-    background-color: #1a1a1a;
+    border: 1px solid #222;
+    background-color: #111;
     height: 20px;
     text-align: left;
     border-radius: 16px;
@@ -388,6 +388,7 @@ p {
     user-select: none;
     border-bottom: 1px solid #2a2a2a;
     border-top: 1px solid #2a2a2a;
+    image-rendering:crisp-edges;
 }
 
 .reel img:hover {
